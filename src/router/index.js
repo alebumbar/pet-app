@@ -1,31 +1,32 @@
-import { createRouter, createWebHistory } from "vue-router";
+import Vue from "vue";
+import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Pets from "../views/Pets.vue";
 import About from "../views/About.vue";
 
-
+Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: Home,
   },
 
   {
     path: "/pets",
     name: "Pets",
-    component: Pets
+    component: Pets,
   },
 
   {
     path: "/about",
     name: "About",
-    component: About
+    component: About,
   },
 ];
 
-const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+const router = new VueRouter({
+  mode: "history",
   routes,
 });
 
