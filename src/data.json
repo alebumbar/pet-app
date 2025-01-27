@@ -1,0 +1,25 @@
+{
+  "pets": [
+    {
+      "id": 1,
+      "name": "Luna",
+      "description": "A friendly dog looking for a home, loves to cuddle and massages.",
+      "breed": "Golden Retriever",
+      "image": "/images/luna.jpeg"
+    },
+    {
+      "id": 2,
+      "name": "Sam",
+      "description": "Loves to purrrr.",
+      "breed": "British short",
+      "image": "/images/sam.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Mittens",
+      "description": "A playful kitten with lots of energy.",
+      "breed": " Tabby Cat",
+      "image": "/images/mittens.jpg"
+    }
+  ]
+}
