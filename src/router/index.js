@@ -1,27 +1,37 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import Pets from "../views/Pets.vue";
-import About from "../views/About.vue";
 
 Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    component: () => import("@/views/Home.vue"),
   },
 
   {
     path: "/pets",
     name: "Pets",
-    component: Pets,
+    component: () => import("@/views/Pets.vue"),
   },
 
   {
     path: "/about",
     name: "About",
-    component: About,
+    component: () => import("@/views/About.vue"),
+  },
+  {
+    path: "/protected",
+    name: "Protected",
+    component: () => import("@/views/ProtectedPage.vue"),
+    meta: {
+      loggedIn: true,
+    },
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: () => import("@/views/LoginPage.vue"),
   },
 ];
 
@@ -30,4 +40,9 @@ const router = new VueRouter({
   routes,
 });
 
+router.beforeEach((to, from) => {
+  if (to.meta.loggedIn && !window.user) {
+    return { name: "login" };
+  }
+});
 export default router;
